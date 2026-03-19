@@ -2,10 +2,14 @@
 A simple package for ROS which makes TurtleBot3 move towards red objects in a Gazebo simulation. The robot will turn left or right to keep red objects in the center of its view. This project was built to gain hands-on experience with ROS2, Gazebo, image-based perception, and simple closed-loop robot control.
 
 
-![alt text](image-3.png)
+![alt text](images/vision.png)
+
 The vision_steering package uses OpenCV to find red objects in view.
-![alt text](image.png)
+
+![alt text](images/lidar.png)
+
 TurtleBot will stop to avoid colision.
+
 
 # Installation
 
