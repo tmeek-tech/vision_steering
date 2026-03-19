@@ -1,4 +1,4 @@
-# vision steering
+# Vision Steering
 A simple package for ROS which makes TurtleBot3 move towards red objects in a Gazebo simulation. The robot will turn left or right to keep red objects in the center of its view.
 
 ![alt text](image-1.png)
