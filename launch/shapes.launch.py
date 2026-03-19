@@ -9,7 +9,8 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     # Set environment for TurtleBot3 model with camera
-    os.environ['TURTLEBOT3_MODEL'] = 'burger_cam'
+    os.environ['TURTLEBOT3_MODEL'] = 'waffle_pi'
+    print(f"TURTLEBOT3_MODEL set to: {os.environ['TURTLEBOT3_MODEL']}")
 
     world_path = os.path.join(get_package_share_directory('vision_steering'), 'worlds', 'my_shapes.world')
 

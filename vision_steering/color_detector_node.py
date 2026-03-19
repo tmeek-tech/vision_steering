@@ -96,9 +96,9 @@ class ColorDetectorNode(Node):
                 else:
                     self.position = 'center'
 
-                self.get_logger().info(
-                    f'Red object detected: {self.position} | area={area:.1f} | centroid_x={centroid_x}'
-                )
+                # self.get_logger().info(
+                #     f'Red object detected: {self.position} | area={area:.1f} | centroid_x={centroid_x}'
+                # )
 
                 # Draw helpful overlays for debugging.
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
@@ -113,8 +113,8 @@ class ColorDetectorNode(Node):
                     (0, 255, 0),
                     2
                 )
-        else:
-            self.get_logger().info('No red object detected.')
+        # else:
+        #     self.get_logger().info('No red object detected.')
 
         cv2.imshow('Camera View', frame)
         cv2.imshow('Red Mask', mask)
@@ -124,9 +124,13 @@ class ColorDetectorNode(Node):
         # Look at the front 10 degrees of the scan
         ranges = msg.ranges
         front = ranges[len(ranges)//2 - 5 : len(ranges)//2 + 5]
+        
+        # self.get_logger().info(
+        #     f'hello from scan callback'
+        # )
 
         # Detect obstacles closer than 0.5 meters
-        if any(r < 0.5 for r in front if r > 0.0):
+        if any(r < 0.5 for r in ranges if r > 0.0):
             self.obstacle_detected = True
         else:
             self.obstacle_detected = False
@@ -135,16 +139,13 @@ class ColorDetectorNode(Node):
     def publish_cmd(self):
         twist = Twist()
 
-        if self.obstacle_detected:
-            twist.linear.x = 0.0
-            twist.angular.z = 0.0
-        else:
-            twist.linear.x = 0.0
-            twist.angular.z = 0.0
+        twist.linear.x = 0.0
+        twist.angular.z = 0.0
+        if not self.obstacle_detected:
             if self.position == 'right':
-                twist.angular.z = -0.3   # turn right while moving forward
+                twist.angular.z = -0.3   # turn right
             elif self.position == 'left':
-                twist.angular.z = 0.3   # turn left while moving forward
+                twist.angular.z = 0.3   # turn left
             elif self.position == 'center':
                 twist.linear.x = 0.2
 
