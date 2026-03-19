@@ -8,7 +8,7 @@ The vision_steering package uses OpenCV to find red objects in view.
 
 ![alt text](images/lidar.png)
 
-TurtleBot will stop to avoid colision.
+TurtleBot will stop to avoid collision.
 
 
 # Installation
