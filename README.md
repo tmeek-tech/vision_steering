@@ -13,7 +13,7 @@ TurtleBot will stop to avoid collision.
 
 # Installation
 
-Follow the installation guides for [TurtleBot3](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup), [ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html), and [Gazebo Fortress](https://gazebosim.org/docs/fortress/ros_installation/), then clone this repository into your workspace's src directory and run `colcon build`. Tested with Ubuntu 22.04.
+The easiest way is to run install.sh on a fresh installation of Ubuntu 22.04. Otherwise follow the installation guides for [TurtleBot3](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup), [ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html), and [Gazebo Fortress](https://gazebosim.org/docs/fortress/ros_installation/), clone this repository into your workspace's src directory, and run `colcon build`.
 
 # To Start
-Navigate to your workspace and run `ros2 launch vision_steering shapes.launch.py`
+Run `ros2 launch vision_steering shapes.launch.py`
